@@ -35,7 +35,8 @@ function main() {
     }
 
     var translation = [45, 150, 0];
-    var rotation = [degToRad(40), degToRad(25), degToRad(325)];
+    // var rotation = [degToRad(40), degToRad(25), degToRad(325)];
+    var rotation = [degToRad(0), degToRad(0), degToRad(0)];
     var scale = [1, 1, 1];
     var color = [Math.random(), Math.random(), Math.random(), 1];
 
@@ -317,7 +318,7 @@ function setGeometry(gl) {
         gl.ARRAY_BUFFER,
         new Float32Array([
             // left column front
-            0, 0, 0,
+            1, 1, 1,
             30, 0, 0,
             0, 150, 0,
             0, 150, 0,
