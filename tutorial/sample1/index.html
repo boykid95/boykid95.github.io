@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>WebGL Demo</title>
+    <link rel="stylesheet" href="webgl.css" type="text/css">
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <div id="uiContainer">
+        <div id="ui">
+            <div id="x"></div>
+            <div id="y"></div>
+            <div id="z"></div>
+            <div id="angleX"></div>
+            <div id="angleY"></div>
+            <div id="angleZ"></div>
+            <div id="scaleX"></div>
+            <div id="scaleY"></div>
+            <div id="scaleZ"></div>
+        </div>
+    </div>
+</body>
+<!-- vertex shader -->
+<script id="3d-vertex-shader" type="x-shader/x-vertex">
+    attribute vec4 a_position;
+
+    uniform mat4 u_matrix;
+
+    void main() {
+    // Multiply the position by the matrix.
+        gl_Position = u_matrix * a_position;
+    }
+</script>
+<!-- fragment shader -->
+<script id="3d-fragment-shader" type="x-shader/x-fragment">
+    precision mediump float;
+    uniform vec4 u_color;
+void main() {
+   gl_FragColor = u_color;
+}
+</script>
+
+<script src="webgl-utils.js"></script>
+<script src="webgl-lessons.ui.js"></script>
+<script src="demo.js"></script>
+
+</html>
