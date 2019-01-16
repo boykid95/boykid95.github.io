@@ -19,33 +19,33 @@
 <script id="3d-vertex-shader" type="x-shader/x-vertex">
     attribute vec4 a_position;
 
-uniform mat4 u_matrix;
+    uniform mat4 u_matrix;
 
-varying vec3 v_normal;
+    varying vec3 v_normal;
 
-void main() {
-  // Multiply the position by the matrix.
-  gl_Position = u_matrix * a_position;
+    void main() {
+    // Multiply the position by the matrix.
+    gl_Position = u_matrix * a_position;
 
-  // Pass a normal. Since the positions
-  // centered around the origin we can just 
-  // pass the position
-  v_normal = normalize(a_position.xyz);
-}
+    // Pass a normal. Since the positions
+    // centered around the origin we can just 
+    // pass the position
+    v_normal = normalize(a_position.xyz);
+    }
 </script>
 <!-- fragment shader -->
 <script id="3d-fragment-shader" type="x-shader/x-fragment">
     precision mediump float;
 
-// Passed in from the vertex shader.
-varying vec3 v_normal;
+    // Passed in from the vertex shader.
+    varying vec3 v_normal;
 
-// The texture.
-uniform samplerCube u_texture;
+    // The texture.
+    uniform samplerCube u_texture;
 
-void main() {
-   gl_FragColor = textureCube(u_texture, normalize(v_normal));
-}
+    void main() {
+    gl_FragColor = textureCube(u_texture, normalize(v_normal));
+    }
 </script>
 
 <script src="webgl-utils.js"></script>
